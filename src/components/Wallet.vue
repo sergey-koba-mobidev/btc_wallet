@@ -84,7 +84,8 @@ export default {
       this.wifs.push({
         wif: this.new_wif,
         balance: 0,
-        unconfirmedBalance: 0
+        unconfirmedBalance: 0,
+        transactions: []
       })
       this.$localStorage.set('wifs', this.wifs)
       this.new_wif = ''

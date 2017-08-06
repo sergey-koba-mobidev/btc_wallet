@@ -5,11 +5,13 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import VueLocalStorage from 'vue-localstorage'
+import TreeView from 'vue-json-tree-view'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
 Vue.use(VueLocalStorage)
+Vue.use(TreeView)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
