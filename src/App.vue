@@ -21,7 +21,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar class="cyan" dark>
-      <v-toolbar-title>Toolbar</v-toolbar-title>
+      <v-toolbar-title>Lesson 1</v-toolbar-title>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -39,7 +39,8 @@
         items: [
           { title: 'Nodes', icon: 'computer', path: 'nodes' },
           { title: 'Wallet', icon: 'work', path: 'wallet' },
-          { title: 'Transactions', icon: 'list', path: 'transactions' }
+          { title: 'Transactions', icon: 'list', path: 'transactions' },
+          { title: 'Send', icon: 'input', path: 'send' }
         ],
         right: null
       }

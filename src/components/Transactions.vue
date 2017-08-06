@@ -1,7 +1,7 @@
 <template>
   <v-expansion-panel>
     <v-expansion-panel-content v-for="(wifObj,index) in wifs" :key="index">
-      <div slot="header">{{ wifObj.wif }}</div>
+      <div slot="header">{{ getAddress(wifObj.wif) }}</div>
       <v-card>
         <v-card-text class="grey lighten-3">
           <tree-view :data="wifObj.transactions" :options="{maxDepth: 1}"></tree-view>
@@ -36,6 +36,10 @@ export default {
   methods: {
     getKeyPairByWIF (wif) {
       return BitcoinJS.ECPair.fromWIF(wif, BitcoinJS.networks.testnet)
+    },
+    getAddress (wif) {
+      let keyPair = this.getKeyPairByWIF(wif)
+      return keyPair.getAddress()
     },
     getTransactions (wifObj) {
       let keyPair = this.getKeyPairByWIF(wifObj.wif)
