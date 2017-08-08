@@ -32,12 +32,16 @@
     <v-btn success @click="addWIF">
       Add new WIF
     </v-btn>
+    <v-btn @click="testSeed">
+      Test Seed
+    </v-btn>
   </div>
 </template>
 
 <script>
 import BitcoinJS from 'bitcoinjs-lib'
 import Axios from 'axios'
+import Bip39 from 'bip39'
 
 export default {
   data () {
@@ -121,6 +125,19 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
+    },
+    testSeed () {
+      let seed = 'a3580f8f87e6b59b80df424d63e137ff884866d8866737d3ef8a8b149bfe9749f88876e3366e7409831067239be2667eed60d70f3a3818756baf9444350a3bba'
+      let root = BitcoinJS.HDNode.fromSeedHex(seed, BitcoinJS.networks.testnet)
+      let child1 = root.derivePath("m/0'/0/0")
+      // let child1 = root.derivePath("m44'/1'/0'/0/0")
+      console.log(child1.getAddress())
+
+      let mnemonic = 'yard impulse luxury drive today throw farm pepper survey wreck glass federal'
+      seed = Bip39.mnemonicToSeed(mnemonic)
+      root = BitcoinJS.HDNode.fromSeedHex(seed, BitcoinJS.networks.testnet)
+      child1 = root.derivePath("m/0'/0/0")
+      console.log(child1.getAddress())
     }
   }
 }
