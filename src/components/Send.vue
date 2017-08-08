@@ -61,7 +61,7 @@ import Axios from 'axios'
 export default {
   data () {
     return {
-      address: 'mzVjXYfGBwphT4t6cBcuGAxQd2DzUnNp9k',
+      address: 'mnDQiF92ALyawM1x8GN6ttHVATya4BVMEj',
       amount: 0.0001,
       fee: 0.00005,
       loading: false,
